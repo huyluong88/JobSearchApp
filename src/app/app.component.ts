@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { GithubJobsService } from './app.component.service';
+import { JobSearchService } from './app.component.service';
+import { Subscription } from 'rxjs';
+import Job from './job.model'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GithubJobsService],
+  providers: [JobSearchService],
 })
 export class AppComponent implements OnInit {
-  constructor( private githubJobsService: GithubJobsService) {}
+
+  public jobSearchText: string;
+  public jobSubscription: Subscription;
+  public jobs: Array<Job>
+
+  constructor( private jobSearchService: JobSearchService) {}
   ngOnInit() {
-    this.githubJobsService.getGithubJobs();
+    this.jobSubscription = this.jobSearchService.jobsAsObservables()
+      .subscribe((jobs) => {
+        this.jobs = jobs;
+        console.log('jobs from subscription', this.jobs);
+      })
+  }
+
+  public searchForJobs() {
+    console.log('i am working', this.jobSearchText);
+    this.jobSearchService.getJobs(this.jobSearchText);
   }
 }
