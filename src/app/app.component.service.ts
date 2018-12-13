@@ -19,8 +19,9 @@ export class JobSearchService {
   public getJobs(searchText: string): void {
     const url = `http://api.dataatwork.org/v1/jobs/autocomplete?contains=${searchText}`;
     this.http.get(url)
-      .subscribe(data => {
+      .subscribe((data) => {
         this.jobsSubject.next(data);
+        (err) => { throw new Error(err)};
       });
   }
 }
