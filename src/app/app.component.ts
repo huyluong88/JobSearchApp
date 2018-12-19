@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  // public jobSearchText: string;
   // public jobSubscription: Subscription;
   // public jobs: Array<Job>
 
@@ -26,8 +25,4 @@ export class AppComponent implements OnInit {
     //   })
   }
 
-  // public searchForJobs() {
-  //   console.log('i am working', this.jobSearchText);
-  //   this.jobSearchService.getJobs(this.jobSearchText);
-  // }
 }

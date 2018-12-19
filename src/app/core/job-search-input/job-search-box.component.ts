@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { JobSearchService } from './services/core.service';
+import { JobSearchService } from '../services/core.service';
 
 @Component({
     selector: 'job-search-box',
     templateUrl: './job-search-box.component.html',
     styleUrls: ['./job-search-box.component.scss'],
-    // providers: [JobSearchService]
+    providers: [JobSearchService]
 })
 export class JobSearchBoxComponent implements OnInit {
 
+    public jobSearchText: string;
+
     constructor(
-      // private jobSearchService: JobSearchService,
-      // private router: Router
+      private jobSearchService: JobSearchService,
     ) { }
 
     ngOnInit() {
+    }
+
+    public searchForJobs() {
+      console.log('i am working', this.jobSearchText);
+      this.jobSearchService.getJobs(this.jobSearchText);
     }
 }

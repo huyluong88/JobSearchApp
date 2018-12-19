@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
-import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
@@ -19,7 +18,6 @@ import {MatListModule} from '@angular/material/list';
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatListModule,
