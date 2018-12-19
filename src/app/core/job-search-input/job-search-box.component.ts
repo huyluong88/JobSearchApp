@@ -19,7 +19,6 @@ export class JobSearchBoxComponent implements OnInit {
     }
 
     public searchForJobs() {
-      console.log('i am working', this.jobSearchText);
       this.jobSearchService.getJobs(this.jobSearchText);
     }
 }
