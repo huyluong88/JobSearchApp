@@ -1,5 +1,4 @@
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
+import { Observable, Subject, pipe } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JobSearchApiService } from './core-api.service';
@@ -18,11 +17,12 @@ export class JobSearchService {
     return this.jobsSubject.asObservable();
   }
 
-  public getJobs(searchText: string): void {
-    this.jobSearchApiService.getJobs(searchText)
+  public getJobs(searchText: string, stateText?: string): void {
+    this.jobSearchApiService.getJobs(searchText, stateText)
       .subscribe((data) => {
-        console.log('from service ', data);
+        // console.log('from service ', data);
         this.jobsSubject.next(data);
+        (error) => {throw new Error(error)};
       })
   }
 }

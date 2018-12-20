@@ -9,8 +9,14 @@ export class JobSearchApiService {
     private http: HttpClient
   ) {}
 
-  public getJobs(searchText: string): Observable<any> {
-    const url = `http://api.dataatwork.org/v1/jobs/autocomplete?contains=${searchText}`;
-    return this.http.get(url)
+  public getJobs(searchText: string, stateText?: string): Observable<any> {
+    const url = `https://jobs.search.gov/jobs/search.json?`;
+    const queryParams = {
+      query: searchText+'+jobs'
+    }
+    if (stateText) {
+      queryParams.query += '+in+' + stateText;
+    }
+    return this.http.get(url, {params: queryParams})
   }
 }

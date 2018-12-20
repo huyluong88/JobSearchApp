@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 // import { JobSearchService } from './app.component.service';
-// import { Subscription } from 'rxjs';
 // import Job from './job.model'
 
 @Component({
@@ -11,18 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  // public jobSubscription: Subscription;
   // public jobs: Array<Job>
 
   constructor(
     // private jobSearchService: JobSearchService
   ) {}
   ngOnInit() {
-    // this.jobSubscription = this.jobSearchService.jobsAsObservables()
-    //   .subscribe((jobs) => {
-    //     this.jobs = jobs;
-    //     console.log('jobs from subscription', this.jobs);
-    //   })
   }
 
 }
