@@ -1,23 +1,32 @@
-<h1>Main job page</h1>
-<h3>Search for jobs</h3>
-<job-search-box></job-search-box>
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Personal data
-      </mat-panel-title>
-      <mat-panel-description>
-        Type your name and age
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
-  </mat-expansion-panel>
-</mat-accordion>
+<div class="title-and-input-container">
+  <h1>Government Jobs</h1>
+  <job-search-box></job-search-box>
+</div>
+<div class="jobs-container">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let job of jobs">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="mat-panel-title">
+          <input
+            type="checkbox"
+            (change)="selectedJob(job)">
+          <span [innerText]="job.position_title"></span>
+        </mat-panel-title>
+        <mat-panel-description class="mat-panel-description">
+          <span [innerText]="job.organization_name"></span>
+          <span class="locations" *ngFor="let location of job.locations">{{location}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="job-detail-container">
+        <div class="">
+          <span class="title">Application start data</span><div class="content" [innerText]="job.start_date"></div>
+          <span class="title">Application end date</span><div class="content" [innerText]="job.end_date"></div>
+        </div>
+        <div class="">
+          <span class="title">Organization name</span><div class="content" [innerText]="job.organization_name"></div>
+          <span class="title">View job's detail:</span><a class="content" href="{{job.url}}" target="_blank">{{job.url}}</a>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

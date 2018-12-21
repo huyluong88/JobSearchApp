@@ -1,0 +1,45 @@
+.mat-panel-title, .mat-panel-description {
+  width: 20%;
+}
+
+.locations {
+  margin-left: 0.5em;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.7em;
+}
+
+.content {
+  padding: 0.7em;
+}
+
+.job-detail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.jobs-container {
+    padding: 2em;
+}
+
+.title-and-input-container {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .mat-panel-title, .mat-panel-description {
+    font-size: 12px;
+    width: 0%;
+  }
+
+  .job-detail-container {
+    flex-direction: column;
+  }
+
+  a {
+    font-size: 12px;
+  }
+}

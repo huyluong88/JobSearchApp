@@ -1,10 +1,12 @@
 Job keyword
 <input
+  class="job-input"
   type="text"
   [(ngModel)]="jobSearchText"
   (keyup.enter)="searchForJobs()" >
-State
+State(Optional)
 <input
+  class="state-input"
   type="text"
   [(ngModel)]="stateText"
   >

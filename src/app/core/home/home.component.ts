@@ -23,4 +23,9 @@ export class HomeComponent implements OnInit {
           console.log('jobs from home', jobs);
         })
     }
+
+    public selectedJob(job): void {
+      //add all selected jobs into an array 
+      console.log(job);
+    }
 }
