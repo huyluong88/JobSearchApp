@@ -1,5 +1,7 @@
 <div class="header">
   <div class="nav-container">
     <a routerLink="/login">Login</a>
+    <span *ngIf="loggedInUser.length > 5">Welcome: {{loggedInUser}}</span>
+    <a *ngIf="loggedInUser.length > 5" (click)="logout()" >Logout</a>
   </div>
 </div>

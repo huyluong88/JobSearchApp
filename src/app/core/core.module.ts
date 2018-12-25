@@ -10,7 +10,9 @@ import { JobSearchBoxComponent } from './job-search-input/job-search-box.compone
 import { RouterModule } from '@angular/router';
 
 import { JobSearchApiService } from './services/core-api.service';
+import { AuthenticationApiService } from './services/auth-api.service';
 import { JobSearchService } from './services/core.service';
+import { AuthenticationService } from './services/auth.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -27,7 +29,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
         BrowserAnimationsModule,
         MatInputModule,
         MatListModule,
-        MatExpansionModule
+        MatExpansionModule,
     ],
     declarations: [
         LoginComponent,
@@ -42,7 +44,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ],
     providers: [
         JobSearchApiService,
-        JobSearchService
+        JobSearchService,
+        AuthenticationApiService,
+        AuthenticationService
     ]
 })
 export class CoreModule { }
