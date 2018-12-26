@@ -19,4 +19,9 @@ export class JobSearchApiService {
     }
     return this.http.get(url, {params: queryParams})
   }
+
+  public saveJob(job: {}): Observable<any> {
+    const url = 'http://localhost:8000/save-job';
+    return this.http.post(url, job)
+  }
 }

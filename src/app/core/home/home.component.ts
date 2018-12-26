@@ -35,5 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     public selectedJob(job): void {
       //add all selected jobs into an array
       console.log(job);
+      this.jobSearchService.saveJob(job);
     }
 }

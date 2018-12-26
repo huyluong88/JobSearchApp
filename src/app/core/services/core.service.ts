@@ -12,9 +12,14 @@ export class JobSearchService {
     ) {}
 
   private jobsSubject = new Subject<any>();
+  private saveJobResponseSubject = new Subject<any>();
 
   public jobsAsObservables(): Observable<any> {
     return this.jobsSubject.asObservable();
+  }
+
+  public saveJobResponseAsObservables(): Observable<any> {
+    return this.saveJobResponseSubject.asObservable();
   }
 
   public getJobs(searchText: string, stateText?: string): void {
@@ -23,6 +28,13 @@ export class JobSearchService {
         // console.log('from service ', data);
         this.jobsSubject.next(data);
         (error) => {throw new Error(error)};
+      })
+  }
+
+  public saveJob(job: {}): void {
+    this.jobSearchApiService.saveJob(job)
+      .subscribe((response) => {
+        console.log(response);
       })
   }
 }
