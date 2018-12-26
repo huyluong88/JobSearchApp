@@ -13,9 +13,14 @@ export class AuthenticationService {
     ) {}
 
   private authSubject = new Subject<any>();
+  private userSignupSubject = new Subject<any>();
 
   public authAsObservables(): Observable<any> {
     return this.authSubject.asObservable();
+  }
+
+  public userSignupAsObservables(): Observable<any> {
+    return this.userSignupSubject.asObservable();
   }
 
   public login(loginCredentials: {}): void {
@@ -27,6 +32,15 @@ export class AuthenticationService {
           localStorage.setItem('currentUser', JSON.stringify(decodedJwt))
           this.authSubject.next(decodedJwt);
         }
+        (error) => {throw new Error(error)};
+      })
+  }
+
+  public signup(loginCredentials: {}): void {
+    this.authApiService.signup(loginCredentials)
+      .subscribe((data) => {
+        console.log('sign up response ', data);
+        this.userSignupSubject.next(data);
         (error) => {throw new Error(error)};
       })
   }

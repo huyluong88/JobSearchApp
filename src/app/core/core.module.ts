@@ -6,7 +6,8 @@ import { CoreRoutingModule } from './core-routing.module';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { JobSearchBoxComponent } from './job-search-input/job-search-box.component'
+import { JobSearchBoxComponent } from './job-search-input/job-search-box.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
 import { RouterModule } from '@angular/router';
 
 import { JobSearchApiService } from './services/core-api.service';
@@ -36,6 +37,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
         HeaderComponent,
         HomeComponent,
         JobSearchBoxComponent,
+        UserSignupComponent
       ],
     exports: [
         RouterModule,

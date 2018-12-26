@@ -10,7 +10,12 @@ export class AuthenticationApiService {
   ) {}
 
   public login(loginCredentials: {}): Observable<any> {
-    const url = 'http://localhost:8000/login'
+    const url = 'http://localhost:8000/login';
+    return this.http.post(url, loginCredentials);
+  }
+
+  public signup(loginCredentials: {}): Observable<any> {
+    const url = 'http://localhost:8000/signup';
     return this.http.post(url, loginCredentials);
   }
 }

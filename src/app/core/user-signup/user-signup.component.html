@@ -1,4 +1,4 @@
-<h1>Login screen</h1>
+<h1>Signup screen</h1>
 User name:
 <input
   type="text"
@@ -7,11 +7,9 @@ Password:
 <input
   type="password"
   [(ngModel)]="password">
-<button type="button" (click)="login()">Login</button>
+<button type="button" (click)="signup()">signup</button>
 <div class="error-message" *ngIf="errorMessage">
   {{errorMessage}}
 </div>
-Signup:
-<a routerLink="/signup">Signup</a>
 Back home:
 <a routerLink="/">Home</a>

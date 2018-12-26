@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnDestroy
+  } from '@angular/core';
 import { AuthenticationService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -7,7 +11,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
     private authSubscription: Subscription;
     private loggedInUser: string = '';
@@ -25,6 +29,10 @@ export class HeaderComponent implements OnInit {
         })
     }
 
+    ngOnDestroy() {
+      this.authSubscription.unsubscribe();
+    }
+    
     public logout(): void {
       this.loggedInUser = '';
       localStorage.removeItem('currentUser');

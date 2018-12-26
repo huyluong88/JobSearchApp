@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnDestroy
+  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { JobSearchService } from '../services/core.service';
 
@@ -7,10 +11,10 @@ import { JobSearchService } from '../services/core.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
     public jobs: Array<any>;
-    public jobSubscription: Subscription
+    public jobSubscription: Subscription;
 
     constructor(
       private jobSearchService: JobSearchService,
@@ -24,8 +28,12 @@ export class HomeComponent implements OnInit {
         })
     }
 
+    ngOnDestroy() {
+      this.jobSubscription.unsubscribe();
+    }
+
     public selectedJob(job): void {
-      //add all selected jobs into an array 
+      //add all selected jobs into an array
       console.log(job);
     }
 }
