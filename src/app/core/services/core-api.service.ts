@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class JobSearchApiService {
@@ -23,5 +25,8 @@ export class JobSearchApiService {
   public saveJob(job: {}): Observable<any> {
     const url = 'http://localhost:8000/save-job';
     return this.http.post(url, job)
+    .catch((err: HttpErrorResponse) => {
+      return Observable.of(err);
+    })
   }
 }

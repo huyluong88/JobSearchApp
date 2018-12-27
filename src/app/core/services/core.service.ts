@@ -34,7 +34,8 @@ export class JobSearchService {
   public saveJob(job: {}): void {
     this.jobSearchApiService.saveJob(job)
       .subscribe((response) => {
-        console.log(response);
+        console.log('from service ', response);
+        this.saveJobResponseSubject.next(response);
       })
   }
 }

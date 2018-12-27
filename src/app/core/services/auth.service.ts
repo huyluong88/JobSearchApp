@@ -14,6 +14,7 @@ export class AuthenticationService {
 
   private authSubject = new Subject<any>();
   private userSignupSubject = new Subject<any>();
+  public userToken: any;
 
   public authAsObservables(): Observable<any> {
     return this.authSubject.asObservable();
@@ -31,6 +32,7 @@ export class AuthenticationService {
           const decodedJwt = jwt_decode(data.token);
           localStorage.setItem('currentUser', JSON.stringify(decodedJwt))
           this.authSubject.next(decodedJwt);
+          this.userToken = decodedJwt;
         }
         (error) => {throw new Error(error)};
       })
