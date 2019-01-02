@@ -29,4 +29,9 @@ export class JobSearchApiService {
       return Observable.of(err);
     })
   }
+
+  public getJobsByUser(token: {}) :Observable<any> {
+    const url = 'http://localhost:8000/get-saved-jobs';
+    return this.http.get(url)
+  }
 }

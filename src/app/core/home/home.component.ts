@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public jobs: Array<any>;
     private jobSubscription: Subscription;
     private jobSaveSubscription: Subscription;
-    public errorMessage: string = '';
+    public errorMessage: string;
     public showErrorMessage: boolean = false;
 
     private userToken: any = {
